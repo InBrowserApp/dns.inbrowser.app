@@ -1,5 +1,26 @@
 <template>
   <n-space>
+    <n-tooltip trigger="hover">
+      <template #trigger>
+        <n-tag
+          round
+          :bordered="false"
+          :type="props.result.Status === 0 ? 'success' : 'error'"
+          size="small"
+        >
+          {{ DNSRCODEs?.[props.result.Status].name ?? "Unknown" }}
+          <template #icon>
+            <n-icon
+              :component="
+                props.result.Status === 0 ? CheckmarkCircle : CloseCircle
+              "
+            />
+          </template>
+        </n-tag>
+      </template>
+      {{ DNSRCODEs?.[props.result.Status].description ?? "Unknown" }}
+    </n-tooltip>
+
     <span v-for="info in tagsInfo" :key="info.key">
       <n-tooltip trigger="hover">
         <template #trigger>
@@ -26,6 +47,7 @@ import type { DNSJSONResponse } from "@/utils/dns/doh";
 import { NSpace, NTag, NIcon, NTooltip } from "naive-ui";
 import { CheckmarkCircle, CloseCircle } from "@vicons/ionicons5";
 import { computed } from "vue";
+import { DNSRCODEs } from "@/utils/dns/common/rcode";
 
 const props = defineProps<{
   result: DNSJSONResponse;
