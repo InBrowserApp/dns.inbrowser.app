@@ -1,11 +1,13 @@
 <template>
   <main>
     <n-h2 prefix="bar" align-text>DNS Lookup</n-h2>
+    <DNSLookup />
   </main>
 </template>
 
 <script setup lang="ts">
 import { NH2 } from "naive-ui";
+import DNSLookup from "@/components/tools/dns-lookup/DNSLookup.vue";
 import { useHead } from "@vueuse/head";
 
 useHead({
