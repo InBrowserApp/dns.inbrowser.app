@@ -1,5 +1,5 @@
 <template>
-  <n-code :code="result" word-wrap></n-code>
+  <n-code :code="result" word-wrap language="json"></n-code>
 </template>
 
 <script setup lang="ts">

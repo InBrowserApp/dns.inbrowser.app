@@ -13,6 +13,7 @@
   "dependencies": {
     "@vueuse/core": "^10.5.0",
     "dohjs": "^0.3.3",
+    "highlight.js": "^11.9.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
