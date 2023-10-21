@@ -2,6 +2,7 @@
   <n-h3 prefix="bar" align-text>Result</n-h3>
 
   <DNSResultMetadata :result="result" />
+  <DNSResultTable :result="result" />
 
   <n-collapse>
     <n-collapse-item title="Raw Result" name="raw-result">
@@ -14,6 +15,7 @@
 import { NCollapse, NCollapseItem, NH3 } from "naive-ui";
 import DNSRawResult from "./DNSRawResult.vue";
 import DNSResultMetadata from "./DNSResultMetadata.vue";
+import DNSResultTable from "./DNSResultTable.vue";
 import type { DNSJSONResponse } from "@/utils/dns/doh";
 
 defineProps<{
