@@ -15,14 +15,7 @@
   </n-collapse>
   <n-button @click="lookup" type="primary"> Lookup </n-button>
 
-  <n-h3 prefix="bar" align-text>Result</n-h3>
-
-  <n-collapse>
-    <n-collapse-item title="Raw Result" name="raw-result">
-      <DNSRawResult :result="result" />
-    </n-collapse-item>
-  </n-collapse>
-  <!-- {{ result }} -->
+  <DNSResult :result="result" v-if="result" />
 </template>
 
 <script lang="ts" setup>
@@ -31,17 +24,18 @@ import DomainInput from "./DomainInput.vue";
 import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
 import { NButton, NCollapse, NCollapseItem, NIcon, NH3 } from "naive-ui";
 import { Settings16Regular } from "@vicons/fluent";
-import DNSRawResult from "./DNSRawResult.vue";
 import { makeDOHQuery } from "@/utils/dns/doh";
+import DNSResult from "./DNSResult.vue";
+import type { DNSJSONResponse } from "@/utils/dns/doh";
 
 const domain = ref("example.com");
 const dohServer = ref("https://cloudflare-dns.com/dns-query");
-const result = ref("");
+const result = ref<DNSJSONResponse | null>(null);
 
 async function lookup() {
   const response = await makeDOHQuery(dohServer.value, {
     name: domain.value,
   });
-  result.value = JSON.stringify(response, null, 2);
+  result.value = response;
 }
 </script>
