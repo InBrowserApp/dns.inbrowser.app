@@ -1,4 +1,6 @@
 <template>
+  <n-h3 prefix="bar" align-text>Query</n-h3>
+
   <DomainInput v-model:domain="domain" />
 
   <n-collapse>
@@ -13,6 +15,8 @@
   </n-collapse>
   <n-button @click="lookup" type="primary"> Lookup </n-button>
 
+  <n-h3 prefix="bar" align-text>Result</n-h3>
+
   <n-collapse>
     <n-collapse-item title="Raw Result" name="raw-result">
       <DNSRawResult :result="result" />
@@ -25,7 +29,7 @@
 import { ref } from "vue";
 import DomainInput from "./DomainInput.vue";
 import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
-import { NButton, NCollapse, NCollapseItem, NIcon } from "naive-ui";
+import { NButton, NCollapse, NCollapseItem, NIcon, NH3 } from "naive-ui";
 import doh from "@/utils/packages/dohjs";
 import { Settings16Regular } from "@vicons/fluent";
 import DNSRawResult from "./DNSRawResult.vue";
