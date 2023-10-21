@@ -25,7 +25,7 @@ import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
 import { NButton, NCollapse, NCollapseItem, NIcon, NH3 } from "naive-ui";
 import { Settings16Regular } from "@vicons/fluent";
 import { makeDOHQuery } from "@/utils/dns/doh";
-import DNSResult from "./DNSResult.vue";
+import DNSResult from "./result/DNSResult.vue";
 import type { DNSJSONResponse } from "@/utils/dns/doh";
 
 const domain = ref("example.com");
