@@ -1,5 +1,5 @@
 <template>
-  <DomainInput v-model:value="domain" />
+  <DomainInput v-model:domain="domain" />
   <n-button @click="lookup" type="primary"> Lookup </n-button>
   <DOHServerSelect v-model:value="dohServer" />
   {{ result }}
