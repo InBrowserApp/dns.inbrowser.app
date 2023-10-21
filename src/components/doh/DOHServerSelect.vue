@@ -1,9 +1,11 @@
 <template>
-  <n-select v-model:value="value" :options="options" />
+  <n-form-item label="DNS Server">
+    <n-select v-model:value="value" :options="options" />
+  </n-form-item>
 </template>
 
 <script lang="ts" setup>
-import { NSelect } from "naive-ui";
+import { NSelect, NFormItem } from "naive-ui";
 import { useVModel } from "@vueuse/core";
 import { BUILTIN_DOH_SERVERS } from "@/utils/dns/doh";
 
