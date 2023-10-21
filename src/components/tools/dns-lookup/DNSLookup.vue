@@ -1,7 +1,18 @@
 <template>
   <DomainInput v-model:domain="domain" />
+
+  <n-collapse>
+    <template #arrow>
+      <n-icon>
+        <Settings16Regular />
+      </n-icon>
+    </template>
+    <n-collapse-item title="Advanced Settings" name="advanced-settings">
+      <DOHServerSelect v-model:value="dohServer" />
+    </n-collapse-item>
+  </n-collapse>
   <n-button @click="lookup" type="primary"> Lookup </n-button>
-  <DOHServerSelect v-model:value="dohServer" />
+
   {{ result }}
 </template>
 
@@ -9,8 +20,9 @@
 import { ref } from "vue";
 import DomainInput from "./DomainInput.vue";
 import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
-import { NButton } from "naive-ui";
+import { NButton, NCollapse, NCollapseItem, NIcon } from "naive-ui";
 import doh from "@/utils/packages/dohjs";
+import { Settings16Regular } from "@vicons/fluent"
 
 const domain = ref("example.com");
 const dohServer = ref("https://cloudflare-dns.com/dns-query");
