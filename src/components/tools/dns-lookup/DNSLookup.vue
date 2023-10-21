@@ -13,7 +13,12 @@
   </n-collapse>
   <n-button @click="lookup" type="primary"> Lookup </n-button>
 
-  {{ result }}
+  <n-collapse>
+    <n-collapse-item title="Raw Result" name="raw-result">
+      <DNSRawResult :result="result" />
+    </n-collapse-item>
+  </n-collapse>
+  <!-- {{ result }} -->
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +27,8 @@ import DomainInput from "./DomainInput.vue";
 import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
 import { NButton, NCollapse, NCollapseItem, NIcon } from "naive-ui";
 import doh from "@/utils/packages/dohjs";
-import { Settings16Regular } from "@vicons/fluent"
+import { Settings16Regular } from "@vicons/fluent";
+import DNSRawResult from "./DNSRawResult.vue";
 
 const domain = ref("example.com");
 const dohServer = ref("https://cloudflare-dns.com/dns-query");
