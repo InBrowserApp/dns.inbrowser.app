@@ -41,7 +41,7 @@ const columns = computed(() => [
 ]);
 
 const data = computed<DataRow[]>(() => {
-  return props.result.Answer.map((answer) => ({
+  return (props.result?.Answer ?? []).map((answer) => ({
     name: answer.name,
     type: answer.type,
     TTL: answer.TTL,

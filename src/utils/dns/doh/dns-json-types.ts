@@ -6,8 +6,8 @@ export interface DNSJSONResponse {
   AD: boolean;
   CD: boolean;
   Question: DNSJSONQuestion[];
-  Answer: DNSJSONAnswer[];
-  Additional: DNSJSONAnswer[];
+  Answer?: DNSJSONAnswer[];
+  Additional?: DNSJSONAnswer[];
   edns_client_subnet?: string;
   Comment?: string;
 }
