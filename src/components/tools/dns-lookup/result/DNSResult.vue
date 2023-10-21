@@ -5,7 +5,7 @@
 
   <n-collapse>
     <n-collapse-item title="Raw Result" name="raw-result">
-      <DNSRawResult :result="resultString" />
+      <DNSRawResult :result="result" />
     </n-collapse-item>
   </n-collapse>
 </template>
@@ -16,9 +16,7 @@ import DNSRawResult from "./DNSRawResult.vue";
 import DNSResultMetadata from "./DNSResultMetadata.vue";
 import type { DNSJSONResponse } from "@/utils/dns/doh";
 
-const props = defineProps<{
+defineProps<{
   result: DNSJSONResponse;
 }>();
-
-const resultString = JSON.stringify(props.result, null, 2);
 </script>
