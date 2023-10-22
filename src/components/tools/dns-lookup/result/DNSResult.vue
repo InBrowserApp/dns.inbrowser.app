@@ -2,7 +2,7 @@
   <n-h3 prefix="bar" align-text>Result</n-h3>
 
   <DNSResultMetadata :result="result" />
-  <DNSResultTable :result="result" />
+  <DNSResultTable :result="result" style="margin: 1em 0 1em 0" />
 
   <n-collapse>
     <n-collapse-item title="Raw Result" name="raw-result">
