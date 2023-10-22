@@ -4,6 +4,7 @@ import DNSLookupView from "../views/DNSLookupView.vue";
 import DOHServersView from "../views/DOHServersView.vue";
 import DOTServersView from "../views/DOTServersView.vue";
 import UDPServersView from "../views/UDPServersView.vue";
+import PunycodeToolView from "../views/PunycodeToolView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/tools/udp-servers",
       name: "udp-servers",
       component: UDPServersView,
+    },
+    {
+      path: "/tools/punycode-tool",
+      name: "punycode-tool",
+      component: PunycodeToolView,
     },
   ],
 });

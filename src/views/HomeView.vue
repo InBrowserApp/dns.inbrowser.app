@@ -34,6 +34,14 @@
           UDP servers
         </n-button>
       </router-link>
+      <router-link to="/tools/punycode-tool" #="{ navigate, href }" custom>
+        <n-button tag="a" :href="href" @click="navigate" text>
+          <template #icon>
+            <n-icon :component="LanguageOutline" />
+          </template>
+          Punycode Tool
+        </n-button>
+      </router-link>
     </n-space>
   </main>
 </template>
@@ -41,6 +49,7 @@
 <script setup lang="ts">
 import { NH2, NButton, NIcon, NSpace } from "naive-ui";
 import { DocumentSearch16Regular, Server20Regular } from "@vicons/fluent";
+import { LanguageOutline } from "@vicons/ionicons5";
 import { useHead } from "@vueuse/head";
 
 useHead({
