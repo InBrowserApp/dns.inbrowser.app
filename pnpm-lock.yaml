@@ -30,6 +30,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.11.12
     version: 18.13.0
+  '@types/punycode':
+    specifier: ^2.1.1
+    version: 2.1.1
   '@vicons/antd':
     specifier: ^0.12.0
     version: 0.12.0
@@ -1732,6 +1735,10 @@ packages:
 
   /@types/node@18.13.0:
     resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==}
+    dev: true
+
+  /@types/punycode@2.1.1:
+    resolution: {integrity: sha512-41wbJ1+JU2hECp2FDMAAzUZyiFyfeqAW/aTVsqY2RsDi5M2sliZgBp+7rv1Rc8oMJv0tt+74b6Sb1EcWldTCpA==}
     dev: true
 
   /@types/resolve@1.17.1:
