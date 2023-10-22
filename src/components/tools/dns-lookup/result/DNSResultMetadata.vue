@@ -41,7 +41,6 @@
 import { NSpace, NTag, NIcon, NTooltip } from "naive-ui";
 import { CheckmarkCircle, CloseCircle } from "@vicons/ionicons5";
 import { computed } from "vue";
-import { DNSRCODEs } from "@/utils/dns/common/rcode";
 import type { DNSResponse } from "@/utils/packages/dohjs";
 
 const props = defineProps<{
