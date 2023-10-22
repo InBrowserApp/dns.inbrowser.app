@@ -26,6 +26,14 @@
           DoT servers
         </n-button>
       </router-link>
+      <router-link to="/tools/udp-servers" #="{ navigate, href }" custom>
+        <n-button tag="a" :href="href" @click="navigate" text>
+          <template #icon>
+            <n-icon :component="Server20Regular" />
+          </template>
+          UDP servers
+        </n-button>
+      </router-link>
     </n-space>
   </main>
 </template>
