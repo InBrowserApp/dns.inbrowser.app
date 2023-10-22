@@ -10,6 +10,14 @@
           DNS Lookup
         </n-button>
       </router-link>
+      <router-link to="/tools/reverse-ip-lookup" #="{ navigate, href }" custom>
+        <n-button tag="a" :href="href" @click="navigate" text>
+          <template #icon>
+            <n-icon :component="DocumentSearch16Regular" />
+          </template>
+          Reverse IP Lookup
+        </n-button>
+      </router-link>
       <router-link to="/tools/doh-servers" #="{ navigate, href }" custom>
         <n-button tag="a" :href="href" @click="navigate" text>
           <template #icon>
