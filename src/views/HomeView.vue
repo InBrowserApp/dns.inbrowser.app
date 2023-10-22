@@ -1,20 +1,30 @@
 <template>
   <main>
     <n-h2 prefix="bar" align-text>Tools List</n-h2>
-    <router-link to="/tools/dns-lookup" #="{ navigate, href }" custom>
-      <n-button tag="a" :href="href" @click="navigate" text>
-        <template #icon>
-          <n-icon :component="DocumentSearch16Regular" />
-        </template>
-        DNS Lookup
-      </n-button>
-    </router-link>
+    <n-space vertical>
+      <router-link to="/tools/dns-lookup" #="{ navigate, href }" custom>
+        <n-button tag="a" :href="href" @click="navigate" text>
+          <template #icon>
+            <n-icon :component="DocumentSearch16Regular" />
+          </template>
+          DNS Lookup
+        </n-button>
+      </router-link>
+      <router-link to="/tools/doh-servers" #="{ navigate, href }" custom>
+        <n-button tag="a" :href="href" @click="navigate" text>
+          <template #icon>
+            <n-icon :component="Server20Regular" />
+          </template>
+          DoH servers
+        </n-button>
+      </router-link>
+    </n-space>
   </main>
 </template>
 
 <script setup lang="ts">
-import { NH2, NButton, NIcon } from "naive-ui";
-import { DocumentSearch16Regular } from "@vicons/fluent";
+import { NH2, NButton, NIcon, NSpace } from "naive-ui";
+import { DocumentSearch16Regular, Server20Regular } from "@vicons/fluent";
 import { useHead } from "@vueuse/head";
 
 useHead({
