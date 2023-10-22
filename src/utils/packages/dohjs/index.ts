@@ -2,3 +2,4 @@
 import doh from "dohjs/dist/doh.min.js";
 
 export default doh;
+export type { DNSResponse } from "./types";

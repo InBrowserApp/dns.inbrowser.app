@@ -4,17 +4,16 @@
 
 <script lang="ts" setup>
 import { NDataTable } from "naive-ui";
-import type { DNSJSONResponse } from "@/utils/dns/doh";
-import { computed, h } from "vue";
-import { DNSRecordTypes } from "@/utils/dns/common/record-type";
+import type { DNSResponse } from "@/utils/packages/dohjs";
+import { computed } from "vue";
 
 const props = defineProps<{
-  result: DNSJSONResponse;
+  result: DNSResponse;
 }>();
 
 interface DataRow {
   name: string;
-  type: number;
+  type: string;
   TTL: number;
   data: string;
 }
@@ -27,8 +26,6 @@ const columns = computed(() => [
   {
     title: "Type",
     key: "type",
-    render: (row: DataRow) =>
-      h("span", DNSRecordTypes?.[row.type] ?? "Unknown"),
   },
   {
     title: "TTL",
@@ -41,10 +38,10 @@ const columns = computed(() => [
 ]);
 
 const data = computed<DataRow[]>(() => {
-  return (props.result?.Answer ?? []).map((answer) => ({
+  return (props.result?.answers ?? []).map((answer) => ({
     name: answer.name,
     type: answer.type,
-    TTL: answer.TTL,
+    TTL: answer.ttl,
     data: answer.data,
   }));
 });

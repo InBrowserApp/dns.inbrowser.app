@@ -5,10 +5,10 @@ export const BUILTIN_DOH_SERVERS = [
   },
   {
     label: "Google",
-    url: "https://dns.google/resolve",
+    url: "https://dns.google/dns-query",
   },
   {
     label: "AliDNS",
-    url: "https://dns.alidns.com/resolve",
+    url: "https://dns.alidns.com/dns-query",
   },
 ];

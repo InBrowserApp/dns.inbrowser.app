@@ -4,11 +4,11 @@
 
 <script setup lang="ts">
 import { NCode } from "naive-ui";
-import type { DNSJSONResponse } from "@/utils/dns/doh";
+import type { DNSResponse } from "@/utils/packages/dohjs";
 import { computed } from "vue";
 
 const props = defineProps<{
-  result: DNSJSONResponse;
+  result: DNSResponse;
 }>();
 
 const resultString = computed(() => JSON.stringify(props.result, null, 2));

@@ -8,7 +8,7 @@
 import { ref } from "vue";
 import DNSQuery from "./query/DNSQuery.vue";
 import DNSResult from "./result/DNSResult.vue";
-import type { DNSJSONResponse } from "@/utils/dns/doh";
+import type { DNSResponse } from "@/utils/packages/dohjs";
 
-const result = ref<DNSJSONResponse | null>(null);
+const result = ref<DNSResponse | null>(null);
 </script>

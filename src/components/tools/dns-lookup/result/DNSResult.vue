@@ -16,9 +16,9 @@ import { NCollapse, NCollapseItem, NH3 } from "naive-ui";
 import DNSRawResult from "./DNSRawResult.vue";
 import DNSResultMetadata from "./DNSResultMetadata.vue";
 import DNSResultTable from "./DNSResultTable.vue";
-import type { DNSJSONResponse } from "@/utils/dns/doh";
+import type { DNSResponse } from "@/utils/packages/dohjs";
 
 defineProps<{
-  result: DNSJSONResponse;
+  result: DNSResponse;
 }>();
 </script>

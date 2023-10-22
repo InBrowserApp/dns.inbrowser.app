@@ -1,4 +1,5 @@
-import type { DNSJSONResponse } from "./dns-json-types";
+import type { DNSResponse } from "@/utils/packages/dohjs";
+import doh from "@/utils/packages/dohjs";
 
 // https://developers.google.com/speed/public-dns/docs/doh/json
 export interface DNSQuery {
@@ -13,40 +14,9 @@ export interface DNSQuery {
 export async function makeDOHQuery(
   server: string,
   query: DNSQuery
-): Promise<DNSJSONResponse> {
-  const url = new URL(server);
-  const searchParams: Record<string, string> = {
-    name: query.name,
-  };
-  if (query.type) {
-    searchParams.type = query.type;
-  }
-  if (query.cd) {
-    searchParams.cd = query.cd ? "1" : "0";
-  }
-  if (query.ct) {
-    searchParams.ct = query.ct;
-  }
-  if (query.do) {
-    searchParams.do = query.do ? "1" : "0";
-  }
-  if (query.edns_client_subnet) {
-    searchParams.edns_client_subnet = query.edns_client_subnet;
-  }
+): Promise<DNSResponse> {
+  const resolver = new doh.DohResolver(server);
+  const response = await resolver.query(query.name, query.type, "GET");
 
-  url.search = new URLSearchParams(searchParams).toString();
-
-  const response = await fetch(url.toString(), {
-    method: "GET",
-    headers: {
-      Accept: "application/dns-json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error: ${response.status}`);
-  }
-
-  const json = await response.json();
-  return json;
+  return response;
 }

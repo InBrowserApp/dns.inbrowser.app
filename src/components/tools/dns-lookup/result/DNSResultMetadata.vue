@@ -1,25 +1,20 @@
 <template>
   <n-space>
-    <n-tooltip trigger="hover">
-      <template #trigger>
-        <n-tag
-          round
-          :bordered="false"
-          :type="props.result.Status === 0 ? 'success' : 'error'"
-          size="small"
-        >
-          {{ DNSRCODEs?.[props.result.Status].name ?? "Unknown" }}
-          <template #icon>
-            <n-icon
-              :component="
-                props.result.Status === 0 ? CheckmarkCircle : CloseCircle
-              "
-            />
-          </template>
-        </n-tag>
+    <n-tag
+      round
+      :bordered="false"
+      :type="props.result.rcode === 'NOERROR' ? 'success' : 'error'"
+      size="small"
+    >
+      {{ props.result.rcode ?? "Unknown" }}
+      <template #icon>
+        <n-icon
+          :component="
+            props.result.rcode === 'NOERROR' ? CheckmarkCircle : CloseCircle
+          "
+        />
       </template>
-      {{ DNSRCODEs?.[props.result.Status].description ?? "Unknown" }}
-    </n-tooltip>
+    </n-tag>
 
     <span v-for="info in tagsInfo" :key="info.key">
       <n-tooltip trigger="hover">
@@ -43,14 +38,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { DNSJSONResponse } from "@/utils/dns/doh";
 import { NSpace, NTag, NIcon, NTooltip } from "naive-ui";
 import { CheckmarkCircle, CloseCircle } from "@vicons/ionicons5";
 import { computed } from "vue";
 import { DNSRCODEs } from "@/utils/dns/common/rcode";
+import type { DNSResponse } from "@/utils/packages/dohjs";
 
 const props = defineProps<{
-  result: DNSJSONResponse;
+  result: DNSResponse;
 }>();
 
 const tagsInfo = computed(() => [
@@ -58,31 +53,31 @@ const tagsInfo = computed(() => [
     label: "TC",
     description: "Truncated Response",
     key: "TC",
-    value: props.result.TC,
+    value: props.result.flag_tc,
   },
   {
     label: "RD",
     description: "Recursion Desired",
     key: "RD",
-    value: props.result.RD,
+    value: props.result.flag_rd,
   },
   {
     label: "RA",
     description: "Recursion Available",
     key: "RA",
-    value: props.result.RA,
+    value: props.result.flag_ra,
   },
   {
     label: "AD",
     description: "Authentic Data (DNSSEC)",
     key: "AD",
-    value: props.result.AD,
+    value: props.result.flag_ad,
   },
   {
     label: "CD",
     description: "Checking Disabled (DNSSEC)",
     key: "CD",
-    value: props.result.CD,
+    value: props.result.flag_cd,
   },
 ]);
 </script>
