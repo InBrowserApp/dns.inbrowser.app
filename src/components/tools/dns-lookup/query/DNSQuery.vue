@@ -13,7 +13,7 @@
     </n-grid-item>
   </n-grid>
 
-  <n-button @click="lookup" round>
+  <n-button @click="lookup" round :loading="loading">
     <template #icon>
       <n-icon>
         <DocumentSearch16Regular />
@@ -35,14 +35,22 @@ import { DocumentSearch16Regular } from "@vicons/fluent";
 const recordType = ref("A");
 const domain = ref("example.com");
 const dohServer = ref("https://cloudflare-dns.com/dns-query");
+const loading = ref(false);
 
 const emit = defineEmits(["update:result"]);
 
 async function lookup() {
-  const response = await makeDOHQuery(dohServer.value, {
-    name: domain.value,
-    type: recordType.value,
-  });
-  emit("update:result", response);
+  loading.value = true;
+  try {
+    const response = await makeDOHQuery(dohServer.value, {
+      name: domain.value,
+      type: recordType.value,
+    });
+    emit("update:result", response);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    loading.value = false;
+  }
 }
 </script>
