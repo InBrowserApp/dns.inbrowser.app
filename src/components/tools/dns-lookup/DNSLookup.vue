@@ -1,41 +1,14 @@
 <template>
-  <n-h3 prefix="bar" align-text>Query</n-h3>
-
-  <DomainInput v-model:domain="domain" />
-
-  <n-collapse>
-    <template #arrow>
-      <n-icon>
-        <Settings16Regular />
-      </n-icon>
-    </template>
-    <n-collapse-item title="Advanced Settings" name="advanced-settings">
-      <DOHServerSelect v-model:value="dohServer" />
-    </n-collapse-item>
-  </n-collapse>
-  <n-button @click="lookup" type="primary"> Lookup </n-button>
+  <DNSQuery @update:result="result = $event" />
 
   <DNSResult :result="result" v-if="result" />
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import DomainInput from "./DomainInput.vue";
-import DOHServerSelect from "@/components/doh/DOHServerSelect.vue";
-import { NButton, NCollapse, NCollapseItem, NIcon, NH3 } from "naive-ui";
-import { Settings16Regular } from "@vicons/fluent";
-import { makeDOHQuery } from "@/utils/dns/doh";
+import DNSQuery from "./query/DNSQuery.vue";
 import DNSResult from "./result/DNSResult.vue";
 import type { DNSJSONResponse } from "@/utils/dns/doh";
 
-const domain = ref("example.com");
-const dohServer = ref("https://cloudflare-dns.com/dns-query");
 const result = ref<DNSJSONResponse | null>(null);
-
-async function lookup() {
-  const response = await makeDOHQuery(dohServer.value, {
-    name: domain.value,
-  });
-  result.value = response;
-}
 </script>
