@@ -1,5 +1,6 @@
 <template>
   <main>
+    <BackToHome />
     <n-h2 prefix="bar" align-text>DNS Lookup</n-h2>
     <DNSLookup />
   </main>
@@ -9,6 +10,7 @@
 import { NH2 } from "naive-ui";
 import DNSLookup from "@/components/tools/dns-lookup/DNSLookup.vue";
 import { useHead } from "@vueuse/head";
+import BackToHome from "@/components/misc/BackToHome.vue";
 
 useHead({
   title: "DNS Lookup | DNS InBrowser.App",
