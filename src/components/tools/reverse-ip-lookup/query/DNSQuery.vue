@@ -23,7 +23,7 @@ import { makeDOHQuery } from "@/utils/dns/doh";
 import { DocumentSearch16Regular } from "@vicons/fluent";
 import { ReverseIPDomain } from "@/utils/dns/common/reverse-ip-domain";
 
-const ip = ref("2606:4700:4700::1111");
+const ip = ref("1.1.1.1");
 const dohServer = ref("https://cloudflare-dns.com/dns-query");
 const loading = ref(false);
 
