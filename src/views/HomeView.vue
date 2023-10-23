@@ -1,6 +1,6 @@
 <template>
   <main>
-    <n-h2 prefix="bar" align-text>Tools List</n-h2>
+    <n-h2 prefix="bar" align-text>Tools</n-h2>
     <n-space vertical>
       <router-link to="/tools/dns-lookup" #="{ navigate, href }" custom>
         <n-button tag="a" :href="href" @click="navigate" text>
