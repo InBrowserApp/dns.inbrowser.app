@@ -14,7 +14,7 @@ export interface DNSJSONResponse {
 
 export interface DNSJSONQuestion {
   name: string;
-  type: string;
+  type: number;
 }
 
 export interface DNSJSONAnswer {
