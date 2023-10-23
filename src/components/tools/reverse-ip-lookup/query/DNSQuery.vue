@@ -22,9 +22,13 @@ import { NButton, NH3, NIcon } from "naive-ui";
 import { makeDOHQuery } from "@/utils/dns/doh";
 import { DocumentSearch16Regular } from "@vicons/fluent";
 import { ReverseIPDomain } from "@/utils/dns/common/reverse-ip-domain";
+import { useStorage } from "@vueuse/core";
 
-const ip = ref("1.1.1.1");
-const dohServer = ref("https://cloudflare-dns.com/dns-query");
+const ip = useStorage("reverse-ip-lookup-ip", "1.1.1.1");
+const dohServer = useStorage(
+  "doh-server",
+  "https://cloudflare-dns.com/dns-query"
+);
 const loading = ref(false);
 
 const emit = defineEmits(["update:result"]);
