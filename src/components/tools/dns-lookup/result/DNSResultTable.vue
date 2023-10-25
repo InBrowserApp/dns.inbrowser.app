@@ -7,6 +7,7 @@ import { NDataTable } from "naive-ui";
 import type { DNSJSONResponse } from "@/utils/dns/doh";
 import { computed, h } from "vue";
 import { DNSRecordTypes } from "@/utils/dns/common/record-type";
+import DNSResultData from "./DNSResultData.vue";
 
 const props = defineProps<{
   result: DNSJSONResponse;
@@ -37,6 +38,7 @@ const columns = computed(() => [
   {
     title: "Data",
     key: "data",
+    render: (row: DataRow) => h(DNSResultData, { data: row.data }),
   },
 ]);
 
