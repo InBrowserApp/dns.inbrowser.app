@@ -45,6 +45,12 @@ const router = createRouter({
       name: "reverse-ip-lookup",
       component: ReverseIPLookupView,
     },
+
+    // catch all
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
+    },
   ],
 });
 
