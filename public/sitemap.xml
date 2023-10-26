@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dns.inbrowser.app/</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/dns-lookup</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/doh-servers</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/dot-servers</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/udp-servers</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/punycode-tool</loc>
+  </url>
+  <url>
+    <loc>https://dns.inbrowser.app/tools/reverse-ip-lookup</loc>
+  </url>
+</urlset>
